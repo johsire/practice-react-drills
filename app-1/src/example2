@@ -1,0 +1,13 @@
+import React
+
+function myFuntional Component (props) {
+  return (
+    <div>
+    <p> Suup ma hommies </p>
+    <p> { props.name } </p>
+    
+    
+    
+    </div>
+  )
+}

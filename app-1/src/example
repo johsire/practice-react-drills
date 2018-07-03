@@ -1,0 +1,24 @@
+class Name Thing extends Component {
+  constructor() {
+    super()
+    this.state={ name: '' }
+  }
+}
+
+handleNameChange(newName){
+  this.setState({ name: newName })
+}
+
+
+render() { }
+
+return(
+ 
+  <input type='text' onChange={(e) => this.handleNameChange(e.target.value)} /> 
+
+ <div>
+ { this.state.name }
+ </div>
+)
+
+export default Name Thing
