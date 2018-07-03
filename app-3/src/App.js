@@ -1,21 +1,37 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      filterData: '',
+      list: ['learn React',
+       'learn HTML/CSS', 
+       'learn SQL Database', 
+       'learn flex Box'],
+    };
+  }
+
+  updateInput(filter) {
+    this.setState({ filterData: filter });
+  }
+
   render() {
+    let arrayData = this.state.list.filter((element, index) => {
+      return element.includes(this.state.filterData) }).map( (element, index) => {
+        return <h2 key={ index }>{ element }</h2>
+      })
+
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+      <input type='text' onChange={ (e) => this.updateInput(e.target.value ) }/>
+
+          { arrayData }
+
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
     );
   }
 }
-
 export default App;
